@@ -1,0 +1,8 @@
+
+<h3>Value: {{(count | async)?.counter}}</h3>
+
+<button (click)="incrementValue()">+</button>
+<button (click)="resetValue()">0</button>
+<button (click)="decrementValue()">-</button>
+
+<app-counter-form></app-counter-form>

@@ -1,0 +1,16 @@
+<select (change)="changeLang($event.target)">
+  <option value="en" [selected]="lang === 'en'">en</option>
+  <option value="fr" [selected]="lang === 'fr'">fr</option>
+</select>
+
+<ul>
+  <li [routerLink]="['/']" >{{'menu.home' | translate}}</li>
+  <li [routerLink]="['/a/a-single']">A-single</li>
+  <li [routerLink]="['/a/a1']">A1</li>
+  <li [routerLink]="['/b/b-single']">B-single</li>
+  <li [routerLink]="['/b/b1']">B1</li>
+  <li [routerLink]="['/users']">Users</li>
+  <li [routerLink]="['/parent']">Parent</li>
+  <li [routerLink]="['/counter']">Counter</li>
+</ul>
+<router-outlet></router-outlet>
