@@ -1,0 +1,16 @@
+<form (ngSubmit)="submitForm()" #myForm="ngForm">
+
+  <ul>
+    <li *ngIf="modelItem?.errors?.required">Le model est obligatoire</li>
+  </ul>
+
+  <input type="text" #modelItem="ngModel" [(ngModel)]="truck.model" name="model" placeholder="model" required>
+  <input type="text" [(ngModel)]="truck.tank" name="tank" placeholder="tank">
+  <input type="text" [(ngModel)]="truck.speed" name="speed" placeholder="speed">
+
+  <button type="submit" [disabled]="!myForm.valid">OK</button>
+
+  <pre>
+    {{truck | json}}
+  </pre>
+</form>

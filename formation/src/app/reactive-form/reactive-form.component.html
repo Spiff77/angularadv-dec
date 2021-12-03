@@ -1,0 +1,25 @@
+<form [formGroup]="myForm">
+  <ul>
+    <li *ngIf="myForm.controls['name']?.errors?.duplicateKey">Le produit existe dejà</li>
+  </ul>
+
+  <input type="text" formControlName="name" placeholder="name">
+  <input type="text" formControlName="model" placeholder="model">
+  <input type="text" formControlName="tank" placeholder="tank">
+  <input type="text" formControlName="speed" placeholder="speed">
+  <div formGroupName="options">
+    <input type="text" formControlName="radio">
+  </div>
+  <div formArrayName="owners">
+    <div *ngFor="let o of getOwnerFormArray().controls; let i=index" [formGroupName]="i">
+      <input type="text" formControlName="name" placeholder="name">
+      <input type="text" formControlName="nbDriverLicense" placeholder="nbDriverLicense">
+      <button (click)="removeItemFromArray(i)" *ngIf="i > 0">X</button>
+    </div>
+  </div>
+  <button (click)="addDriver()">Add driver</button>
+</form>
+<pre>
+  {{myForm.value | json}}
+  {{myForm.valid| json}}
+</pre>

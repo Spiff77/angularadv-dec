@@ -18,7 +18,10 @@ import { CounterComponent } from './counter/counter.component';
 import {StoreModule} from '@ngrx/store';
 import {counterReducer} from './state/counter.reducer';
 import { CounterFormComponent } from './counter-form/counter-form.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { TemplateFormComponent } from './template-form/template-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 const routes: Routes = [
   {path : 'a', loadChildren: () => import('./am/am.module').then( module => module.AmModule)},
@@ -26,7 +29,9 @@ const routes: Routes = [
   {path : 'users', component: UserListComponent},
   {path : 'parent', component: ParentComponent},
   {path : '', component: HomeComponent},
-  {path : 'counter', component: CounterComponent}
+  {path : 'counter', component: CounterComponent},
+  {path : 'template', component: TemplateFormComponent},
+  {path : 'reactive', component: ReactiveFormComponent}
 ]
 
 export function HttpLoaderFactory(http:HttpClient){
@@ -42,6 +47,8 @@ export function HttpLoaderFactory(http:HttpClient){
     ChildrenComponent,
     CounterComponent,
     CounterFormComponent,
+    TemplateFormComponent,
+    ReactiveFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +70,9 @@ export function HttpLoaderFactory(http:HttpClient){
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

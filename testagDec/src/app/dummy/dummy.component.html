@@ -1,0 +1,10 @@
+<p>dummy works!</p>
+<ul>
+  <li *ngFor="let b of beers" name="goodbeer">{{b}}</li>
+</ul>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input type="text" formControlName="name" >
+  <button type="submit">ok</button>
+</form>
+

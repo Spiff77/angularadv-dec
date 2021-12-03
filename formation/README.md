@@ -10,6 +10,27 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## PWA
 
+Class or interface:
+
+Person{ 
+  id: number                                  // formControl
+  firstname: string                           // formControl
+  addresse:{                                  // formGroup
+    streetNumber: number                      // formControl
+    street: string                            // formControl
+  },
+  courses: [                                  // formArray
+    { // 0                                    // formGroup  
+      id: number,                             // formControl
+      name: string                            // formControl
+    },       
+    { // 1
+    id: number, name: string},
+    {id: number, name: string},
+  ]
+}
+
+
 Installer http-server (`npm install -g http-server`)
 Ajouter pwa (`ng add @angular/pwa`)
 
